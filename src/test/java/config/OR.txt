@@ -1,0 +1,52 @@
+# Home Page Objects
+userAvatar_Ic=//span[@class='user-avatar']
+myAccount_Lnk=//span[@class='ant-dropdown-menu-title-content']//a[contains(text(),'My Account')]
+logout_Ic=//span[@class='ant-dropdown-menu-title-content']/a[text()='Logout']
+manageStudent_Lnk=//a[contains(text(),'Manage Students')]
+setting_Ic=//*[local-name()='svg']//*[local-name()='g' and @transform='translate(0.75 0.75)']/ancestor::span
+loading_Bar=//div[@class='loading-spinner fade in']
+
+# Login Page Object
+username_Txb=//input[@id='username']
+passcode_Txb=//input[@id='j_passcode']
+password_Txb=//input[@id='password']
+login_Btn=//button/span[text()='Log In']
+login_Title=//h4[contains(text(),'login')]
+
+# My Account Page Object
+usernameMyAccount_txb=//input[@class='ant-input ant-input-lg form-control' and @name='userName']
+
+# Manage Student Page Object
+addStudent_Btn=//button//span[contains(text(),'Add Student')]
+importRosterPage_Btn=//button//span[contains(text(),'Import Roster')]
+chooseFile_Btn=//button//span[contains(text(),'Choose File')]
+continue_Btn=//button//span[contains(text(),'Continue')]
+importRoster_Btn=//a[@id='btnImport']
+downloadStudentRosterImport_Template=//a[contains(text(),'Download Student Roster Import Template')]
+selectFile_Txb=//button//span[contains(text(),'Choose File')]
+studentID_Txb=//input[@id='studentId']
+firstName_Txb=//input[@id='firstName']
+middleName_Txb=//input[@id='middleName']
+lastName_Txb=//input[@id='lastName']
+userNameTxb=//input[@id='username']
+passwordTxb=//input[@id='password']
+gradeLevelAdd_Cbx=//div[text()='Add Student']/parent::div/following::div//span[@class='ant-select-selection-item']
+gradeLevel_Txb=//div[@class='sc-dropdown-select']/input
+gradeLevelEdit_Cbx=//div[text()='Edit Student Account']/parent::div/following::div//span[@class='ant-select-selection-item']
+save_Btn=//span[contains(text(),'Save')]
+close_Btn=//span[@class='ant-modal-close-x']
+message_Alert=//div[@class='ant-alert-content']/div[@class='ant-alert-message']
+lastnameFilter_Txb=//input[@class='ant-input ant-input-lg' and @name='lastname']
+applyFilter_Btn=//b[contains(text(),'Apply Filter')]
+action_Ic=//*[local-name()='svg']/*[local-name()='title' and text()='Edit']/ancestor::div[@class='ant-dropdown-trigger flex items-center gap-1 cursor-pointer']
+editAccount_lnk=//span[text()='Edit Account']
+deleteAccount_lnk=//span[text()='Delete Account']
+hidePassword_Ic=//span[@class='toggle-show-hide-pw']
+messageDelete_Alert=//div[@class='ant-modal-confirm-content']
+deleteStudent_Btn=//span[contains(text(),'Delete student')]
+addLicense_Cbx=//span[contains(text(),'Add License')]/parent::span/preceding::span[@class='ant-checkbox']
+license_Table=//div[@class='sadlier-table-responsive seat-license-table sc-custom-table-response has-scroll']/table
+warning_Title=//h4[contains(text(),'Warning')]
+importRoster_Summary=//h4[contains(text(),'Number of records in Import file')]/parent::div[@class='widget-content']
+returnToManageStudents_Btn=//span[contains(text(),'Return to Manage Students')]
+
