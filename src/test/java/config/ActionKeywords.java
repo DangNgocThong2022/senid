@@ -1,24 +1,24 @@
-package config;
+package test.java.config;
 
 import java.time.Duration;
 import java.util.concurrent.TimeUnit;
 
-import static executionEngine.DriverScript.OR;
+import static test.java.executionEngine.DriverScript.OR;
 
-import common.Constant;
+import main.java.common.Constant;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.ie.InternetExplorerDriver;
 import org.testng.Assert;
 
-import executionEngine.DriverScript;
+import test.java.executionEngine.DriverScript;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
-import utils.Log;
-import common.helpers.BrowserHelper;
-import common.Constant;
+import test.java.utils.Log;
+import main.java.common.helpers.BrowserHelper;
+import main.java.common.Constant;
 
 public class ActionKeywords {
 

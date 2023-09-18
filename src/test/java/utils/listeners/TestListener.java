@@ -1,4 +1,4 @@
-package utils.listeners;
+package java.utils.listeners;
 
 import com.aventstack.extentreports.ExtentReports;
 import com.aventstack.extentreports.ExtentTest;
@@ -6,7 +6,7 @@ import org.testng.ITestContext;
 import org.testng.ITestListener;
 import org.testng.ITestResult;
 import utils.extentreports.ExtentManager;
-import utils.logs.Log;
+import java.utils.logs.Log;
 
 
 public class TestListener implements ITestListener {

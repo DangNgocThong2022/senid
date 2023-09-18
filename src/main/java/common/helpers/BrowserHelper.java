@@ -1,6 +1,6 @@
-package common.helpers;
+package main.java.common.helpers;
 
-import common.Constant;
+import main.java.common.Constant;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;

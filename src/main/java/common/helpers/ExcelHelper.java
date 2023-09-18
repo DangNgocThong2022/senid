@@ -1,4 +1,4 @@
-package common.helpers;
+package main.java.common.helpers;
 
 import java.awt.Color;
 import java.io.*;

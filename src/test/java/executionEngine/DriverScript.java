@@ -1,4 +1,4 @@
-package executionEngine;
+package test.java.executionEngine;
 
 import java.io.FileInputStream;
 import java.lang.reflect.Method;
@@ -6,10 +6,10 @@ import java.util.Properties;
 
 import org.apache.log4j.xml.DOMConfigurator;
 
-import config.ActionKeywords;
-import common.Constant;
-import utils.ExcelUtils;
-import utils.Log;
+import test.java.config.ActionKeywords;
+import main.java.common.Constant;
+import test.java.utils.ExcelUtils;
+import test.java.utils.Log;
 
 public class DriverScript {
 

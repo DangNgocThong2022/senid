@@ -1,4 +1,4 @@
-package utils.logs;
+package java.utils.logs;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 

@@ -1,4 +1,4 @@
-package common;
+package main.java.common;
 
 import java.awt.*;
 import java.io.File;
