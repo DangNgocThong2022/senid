@@ -14,20 +14,13 @@
         <dependency>
             <groupId>org.seleniumhq.selenium</groupId>
             <artifactId>selenium-java</artifactId>
-            <version>4.11.0</version>
+            <version>4.12.1</version>
         </dependency>
         <!-- https://mvnrepository.com/artifact/com.googlecode.json-simple/json-simple -->
         <dependency>
             <groupId>com.googlecode.json-simple</groupId>
             <artifactId>json-simple</artifactId>
             <version>1.1.1</version>
-        </dependency>
-        <!-- https://mvnrepository.com/artifact/org.testng/testng -->
-        <dependency>
-            <groupId>org.testng</groupId>
-            <artifactId>testng</artifactId>
-            <version>7.6.0</version>
-            <scope>compile</scope>
         </dependency>
         <dependency>
             <groupId>org.slf4j</groupId>
@@ -62,7 +55,7 @@
         <dependency>
             <groupId>org.seleniumhq.selenium</groupId>
             <artifactId>selenium-support</artifactId>
-            <version>4.8.1</version>
+            <version>4.12.1</version>
         </dependency>
 
         <dependency>
@@ -71,7 +64,7 @@
             <version>2.1.0</version>
             <type>maven-plugin</type>
         </dependency>
-        <!--Test reporting library - extent 3.X-->
+
         <!-- https://mvnrepository.com/artifact/com.aventstack/extentreports -->
         <dependency>
             <groupId>com.aventstack</groupId>
@@ -97,8 +90,6 @@
             <artifactId>log4j-core</artifactId>
             <version>2.20.0</version>
         </dependency>
-
-
 
         <!-- https://mvnrepository.com/artifact/org.apache.poi/poi -->
         <dependency>

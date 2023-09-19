@@ -11,11 +11,6 @@ import org.openqa.selenium.firefox.FirefoxOptions;
 
 import java.time.Duration;
 import java.util.HashMap;
-import java.util.concurrent.TimeUnit;
-
-//import static org.openqa.selenium.remote.BrowserType.CHROME;
-//import static org.openqa.selenium.remote.BrowserType.FIREFOX;
-//import static org.openqa.selenium.remote.BrowserType.EDGE;
 
 public class BrowserHelper {
     public enum DriverType {CHROME, FIREFOX, EDGE}
@@ -37,24 +32,8 @@ public class BrowserHelper {
 
             case CHROME:
                 WebDriverManager.chromedriver().setup();
-                ChromeOptions Options = new ChromeOptions();
-                Options.addArguments("--remote-allow-origins=*");
-                //System.setProperty("webdriver.chrome.driver", "d:\\Driver\\chromedriver.exe");
 
-                System.out.println("Khoi tao chrome");
-                //String downloadFilepath = Constant.pathDownloadFile;
-                //System.out.println("Duong dan download web driver"+ downloadFilepath);
-                //HashMap<String, Object> chromePrefs = new HashMap<String, Object>();
-                //chromePrefs.put("profile.default_content_settings.popups", 0);
-                //chromePrefs.put("download.default_directory", downloadFilepath);
-                //ChromeOptions chromeOptions = new ChromeOptions();
-                //chromeOptions.setExperimentalOption("prefs", chromePrefs);
-                //chromeOptions.addArguments("--start-maximized");
-                //System.out.println("Set option chrome");
-                //Constant.driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
-                Constant.driver = new ChromeDriver(Options);
-                //Constant.driver.navigate().to("https://anhtester.com");
-                System.out.println("Da khoi dong chrome");
+                Constant.driver = new ChromeDriver();
                 break;
 
             case EDGE:
@@ -63,7 +42,7 @@ public class BrowserHelper {
                 break;
 
             default:
-                System.out.println("Không tìm thấy browser");
+                System.out.println("Not found browser");
                 break;
         }
         return Constant.driver;
