@@ -9,6 +9,7 @@ import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.firefox.FirefoxOptions;
 
+import java.time.Duration;
 import java.util.HashMap;
 import java.util.concurrent.TimeUnit;
 
@@ -31,20 +32,29 @@ public class BrowserHelper {
                 FirefoxOptions firefoxOptions = new FirefoxOptions();
                 firefoxOptions.addArguments("--start-maximized");
                 Constant.driver = new FirefoxDriver(firefoxOptions);
-                Constant.driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
+                Constant.driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
                 break;
 
             case CHROME:
                 WebDriverManager.chromedriver().setup();
-                String downloadFilepath = Constant.pathDownloadFile;
-                HashMap<String, Object> chromePrefs = new HashMap<String, Object>();
-                chromePrefs.put("profile.default_content_settings.popups", 0);
-                chromePrefs.put("download.default_directory", downloadFilepath);
-                ChromeOptions chromeOptions = new ChromeOptions();
-                chromeOptions.setExperimentalOption("prefs", chromePrefs);
-                chromeOptions.addArguments("--start-maximized");
-                Constant.driver = new ChromeDriver(chromeOptions);
-                Constant.driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
+                ChromeOptions Options = new ChromeOptions();
+                Options.addArguments("--remote-allow-origins=*");
+                //System.setProperty("webdriver.chrome.driver", "d:\\Driver\\chromedriver.exe");
+
+                System.out.println("Khoi tao chrome");
+                //String downloadFilepath = Constant.pathDownloadFile;
+                //System.out.println("Duong dan download web driver"+ downloadFilepath);
+                //HashMap<String, Object> chromePrefs = new HashMap<String, Object>();
+                //chromePrefs.put("profile.default_content_settings.popups", 0);
+                //chromePrefs.put("download.default_directory", downloadFilepath);
+                //ChromeOptions chromeOptions = new ChromeOptions();
+                //chromeOptions.setExperimentalOption("prefs", chromePrefs);
+                //chromeOptions.addArguments("--start-maximized");
+                //System.out.println("Set option chrome");
+                //Constant.driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+                Constant.driver = new ChromeDriver(Options);
+                //Constant.driver.navigate().to("https://anhtester.com");
+                System.out.println("Da khoi dong chrome");
                 break;
 
             case EDGE:

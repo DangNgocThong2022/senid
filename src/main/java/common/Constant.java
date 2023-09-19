@@ -9,7 +9,7 @@ import java.util.Random;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.Select;
-import org.sikuli.script.Screen;
+import org.sikuli.api.Screen;
 
 import org.openqa.selenium.Alert;
 import org.openqa.selenium.WebDriver;
@@ -35,6 +35,7 @@ public class Constant {
     public static String url = "https://cqa2.sadlierconnect.com/@thongdang";
     public static String pathFileImport = new File("file-import/").getAbsolutePath();
     public static String pathDownloadFile = new File("file-download").getAbsolutePath();
+    //public static String pathDownloadFile = "D:\\Driver\\chromedriver.exe";
     public static String pathDataDictionaryFile = "data/data-dictionary/DataDictionary.xlsx";
     public static String passcodeAccount = "Acc3ssR3strict!";
     public static String usernameAdminAccount = "admin";

@@ -41,6 +41,11 @@ public class ActionKeywords {
                 Constant.driver=BrowserHelper.openBrowser(BrowserHelper.DriverType.CHROME);
                 Log.info("Chrome browser started");
             }
+            else if(data.equals("edge")){
+                //Dummy Code, Implement you own code
+                Constant.driver=BrowserHelper.openBrowser(BrowserHelper.DriverType.EDGE);
+                Log.info("Chrome browser started");
+            }
         }catch (Exception e){
             Log.info("Not able to open the Browser --- " + e.getMessage());
             DriverScript.bResult = false;
@@ -50,7 +55,7 @@ public class ActionKeywords {
     public static void navigate(String object, String data){
         try{
             Log.info("Navigating to URL");
-            Constant.driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+            Constant.driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
             Constant.driver.get(Constant.url);
         }catch(Exception e){
             Log.info("Not able to navigate --- " + e.getMessage());

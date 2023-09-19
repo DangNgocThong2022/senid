@@ -1,4 +1,4 @@
-package utils.logs;
+package test.java.utils.logs;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.logging.LogEntries;
