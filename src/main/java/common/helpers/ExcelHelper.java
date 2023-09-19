@@ -1,11 +1,14 @@
 package main.java.common.helpers;
 
+import org.apache.poi.ss.usermodel.*;
+
 import java.awt.Color;
-import java.io.*;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
-
-import org.apache.poi.ss.usermodel.*;
 
 
 public class ExcelHelper {
@@ -18,7 +21,7 @@ public class ExcelHelper {
     private static CellStyle cellstyle;
     private static Color mycolor;
     private static String excelFilePath;
-    private static Map<String, Integer> columns = new HashMap<>();
+    private static final Map<String, Integer> columns = new HashMap<>();
 
     public static void setExcelFile(String ExcelPath, String SheetName) throws Exception {
         try {

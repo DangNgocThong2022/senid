@@ -13,8 +13,8 @@ public class TestListener implements ITestListener {
 
 
     //Extent Report Declarations
-    private static ExtentReports extent = ExtentManager.createInstance();
-    private static ThreadLocal<ExtentTest> test = new ThreadLocal<>();
+    private static final ExtentReports extent = ExtentManager.createInstance();
+    private static final ThreadLocal<ExtentTest> test = new ThreadLocal<>();
 
     private static String getTestMethodName(ITestResult iTestResult) {
         return iTestResult.getMethod().getConstructorOrMethod().getName();
@@ -34,7 +34,7 @@ public class TestListener implements ITestListener {
     @Override
     public synchronized void onTestStart(ITestResult result) {
         Log.info(getTestMethodName(result) + " test is starting.");
-        ExtentTest extentTest = extent.createTest(result.getMethod().getMethodName(),result.getMethod().getDescription());
+        ExtentTest extentTest = extent.createTest(result.getMethod().getMethodName(), result.getMethod().getDescription());
         test.set(extentTest);
     }
 

@@ -1,14 +1,14 @@
 package test.java.utils;
 
 import main.java.common.Constant;
-import test.java.executionEngine.DriverScript;
-import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.xssf.usermodel.XSSFRow;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
+import test.java.executionEngine.DriverScript;
 
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
+
 public class ExcelUtils {
     private static XSSFSheet ExcelWSheet;
     private static XSSFWorkbook ExcelWBook;
@@ -20,78 +20,78 @@ public class ExcelUtils {
         try {
             FileInputStream ExcelFile = new FileInputStream(Path);
             ExcelWBook = new XSSFWorkbook(ExcelFile);
-        } catch (Exception e){
-            Log.error("Class Utils | Method setExcelFile | Exception desc : "+e.getMessage());
+        } catch (Exception e) {
+            Log.error("Class Utils | Method setExcelFile | Exception desc : " + e.getMessage());
             DriverScript.bResult = false;
         }
     }
 
-    public static String getCellData(int RowNum, int ColNum, String SheetName ) throws Exception{
-        try{
+    public static String getCellData(int RowNum, int ColNum, String SheetName) throws Exception {
+        try {
             ExcelWSheet = ExcelWBook.getSheet(SheetName);
             Cell = ExcelWSheet.getRow(RowNum).getCell(ColNum);
             String CellData = Cell.getStringCellValue();
             return CellData;
-        }catch (Exception e){
-            Log.error("Class Utils | Method getCellData | Exception desc : "+e.getMessage());
+        } catch (Exception e) {
+            Log.error("Class Utils | Method getCellData | Exception desc : " + e.getMessage());
             DriverScript.bResult = false;
-            return"";
+            return "";
         }
     }
 
-    public static int getRowCount(String SheetName){
-        int iNumber=0;
+    public static int getRowCount(String SheetName) {
+        int iNumber = 0;
         try {
             ExcelWSheet = ExcelWBook.getSheet(SheetName);
-            iNumber=ExcelWSheet.getLastRowNum()+1;
-        } catch (Exception e){
-            Log.error("Class Utils | Method getRowCount | Exception desc : "+e.getMessage());
+            iNumber = ExcelWSheet.getLastRowNum() + 1;
+        } catch (Exception e) {
+            Log.error("Class Utils | Method getRowCount | Exception desc : " + e.getMessage());
             DriverScript.bResult = false;
         }
         return iNumber;
     }
 
-    public static int getRowContains(String sTestCaseName, int colNum,String SheetName) throws Exception{
-        int iRowNum=0;
+    public static int getRowContains(String sTestCaseName, int colNum, String SheetName) throws Exception {
+        int iRowNum = 0;
         try {
             //ExcelWSheet = ExcelWBook.getSheet(SheetName);
             int rowCount = ExcelUtils.getRowCount(SheetName);
-            for (; iRowNum<rowCount; iRowNum++){
-                if  (ExcelUtils.getCellData(iRowNum,colNum,SheetName).equalsIgnoreCase(sTestCaseName)){
+            for (; iRowNum < rowCount; iRowNum++) {
+                if (ExcelUtils.getCellData(iRowNum, colNum, SheetName).equalsIgnoreCase(sTestCaseName)) {
                     break;
                 }
             }
-        } catch (Exception e){
-            Log.error("Class Utils | Method getRowContains | Exception desc : "+e.getMessage());
+        } catch (Exception e) {
+            Log.error("Class Utils | Method getRowContains | Exception desc : " + e.getMessage());
             DriverScript.bResult = false;
         }
         return iRowNum;
     }
 
-    public static int getTestStepsCount(String SheetName, String sTestCaseID, int iTestCaseStart) throws Exception{
+    public static int getTestStepsCount(String SheetName, String sTestCaseID, int iTestCaseStart) throws Exception {
         try {
-            for(int i=iTestCaseStart;i<=ExcelUtils.getRowCount(SheetName);i++){
-                if(!sTestCaseID.equals(ExcelUtils.getCellData(i, Constant.Col_TestCaseID, SheetName))){
+            for (int i = iTestCaseStart; i <= ExcelUtils.getRowCount(SheetName); i++) {
+                if (!sTestCaseID.equals(ExcelUtils.getCellData(i, Constant.Col_TestCaseID, SheetName))) {
                     int number = i;
                     return number;
                 }
             }
             ExcelWSheet = ExcelWBook.getSheet(SheetName);
-            int number=ExcelWSheet.getLastRowNum()+1;
+            int number = ExcelWSheet.getLastRowNum() + 1;
             return number;
-        } catch (Exception e){
-            Log.error("Class Utils | Method getRowContains | Exception desc : "+e.getMessage());
+        } catch (Exception e) {
+            Log.error("Class Utils | Method getRowContains | Exception desc : " + e.getMessage());
             DriverScript.bResult = false;
             return 0;
         }
     }
 
     @SuppressWarnings("static-access")
-    public static void setCellData(String Result,  int RowNum, int ColNum, String SheetName) throws Exception    {
-        try{
+    public static void setCellData(String Result, int RowNum, int ColNum, String SheetName) throws Exception {
+        try {
 
             ExcelWSheet = ExcelWBook.getSheet(SheetName);
-            Row  = ExcelWSheet.getRow(RowNum);
+            Row = ExcelWSheet.getRow(RowNum);
             Cell = Row.getCell(ColNum, org.apache.poi.ss.usermodel.Row.MissingCellPolicy.RETURN_BLANK_AS_NULL);
             if (Cell == null) {
                 Cell = Row.createCell(ColNum);
@@ -104,7 +104,7 @@ public class ExcelUtils {
             //fileOut.flush();
             fileOut.close();
             ExcelWBook = new XSSFWorkbook(new FileInputStream(Constant.Path_TestData));
-        }catch(Exception e){
+        } catch (Exception e) {
             DriverScript.bResult = false;
 
         }

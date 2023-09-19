@@ -4,21 +4,24 @@ import com.aventstack.extentreports.ExtentReports;
 import com.aventstack.extentreports.reporter.ExtentSparkReporter;
 import com.aventstack.extentreports.reporter.configuration.Theme;
 import org.openqa.selenium.Platform;
+
 import java.io.File;
 
 public class ExtentManager {
     private static ExtentReports extent;
     private static Platform platform;
-    private static String reportFileName = "ExtentReports-Version3-Test-Automaton-Report.html";
-    private static String macPath = System.getProperty("user.dir")+ "/test-report";
-    private static String windowsPath = System.getProperty("user.dir")+ "\\test-report";
-    private static String macReportFileLoc = macPath + "/" + reportFileName;
-    private static String winReportFileLoc = windowsPath + "\\" + reportFileName;
+    private static final String reportFileName = "ExtentReports-Version3-Test-Automaton-Report.html";
+    private static final String macPath = System.getProperty("user.dir") + "/test-report";
+    private static final String windowsPath = System.getProperty("user.dir") + "\\test-report";
+    private static final String macReportFileLoc = macPath + "/" + reportFileName;
+    private static final String winReportFileLoc = windowsPath + "\\" + reportFileName;
+
     public static ExtentReports getInstance() {
         if (extent == null)
             createInstance();
         return extent;
     }
+
     //Create an extent report instance
     public static ExtentReports createInstance() {
         platform = getCurrentPlatform();
@@ -38,8 +41,9 @@ public class ExtentManager {
         extent.attachReporter(spark);
         return extent;
     }
+
     //Select the extent report file location based on platform
-    private static String getReportFileLocation (Platform platform) {
+    private static String getReportFileLocation(Platform platform) {
         String reportFileLocation = null;
         switch (platform) {
             case MAC:
@@ -58,12 +62,13 @@ public class ExtentManager {
         }
         return reportFileLocation;
     }
+
     //Create the report path if it does not exist
-    private static void createReportPath (String path) {
+    private static void createReportPath(String path) {
         File testDirectory = new File(path);
         if (!testDirectory.exists()) {
             if (testDirectory.mkdir()) {
-                System.out.println("Directory: " + path + " is created!" );
+                System.out.println("Directory: " + path + " is created!");
             } else {
                 System.out.println("Failed to create directory: " + path);
             }
@@ -71,8 +76,9 @@ public class ExtentManager {
             System.out.println("Directory already exists: " + path);
         }
     }
+
     //Get current platform
-    private static Platform getCurrentPlatform () {
+    private static Platform getCurrentPlatform() {
         if (platform == null) {
             String operSys = System.getProperty("os.name").toLowerCase();
             if (operSys.contains("win")) {
