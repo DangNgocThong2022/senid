@@ -7,11 +7,10 @@ setting_Ic=//*[local-name()='svg']//*[local-name()='g' and @transform='translate
 loading_Bar=//div[@class='loading-spinner fade in']
 
 # Login Page Object
-username_Txb=//input[@id='username']
-passcode_Txb=//input[@id='j_passcode']
-password_Txb=//input[@id='password']
-login_Btn=//button/span[text()='Log In']
-login_Title=//h4[contains(text(),'login')]
+username_Txb=//input[@formcontrolname='email']
+password_Txb=//input[@formcontrolname='password']
+login_Btn1=//button[contains(text(),'Đăng nhập')]
+login_Btn2=//div[contains(text(),'Đăng nhập')]
 
 # My Account Page Object
 usernameMyAccount_txb=//input[@class='ant-input ant-input-lg form-control' and @name='userName']

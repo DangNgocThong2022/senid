@@ -32,7 +32,7 @@ public class Constant {
     public static WebElement element;
     public static List<WebElement> list;
     public static Object object;
-    public static String url = "https://cqa2.sadlierconnect.com/@thongdang";
+    public static String url = "https://senid.banvien.com.vn/";
     public static String pathFileImport = new File("file-import/").getAbsolutePath();
     public static String pathDownloadFile = new File("file-download").getAbsolutePath();
     //public static String pathDownloadFile = "D:\\Driver\\chromedriver.exe";
