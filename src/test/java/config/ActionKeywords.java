@@ -10,6 +10,7 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import test.java.executionEngine.DriverScript;
 import test.java.utils.Log;
+import org.openqa.selenium.Keys;
 
 import java.time.Duration;
 
@@ -58,7 +59,6 @@ public class ActionKeywords {
     public static void click(String object, String data) {
         try {
             Log.info("Clicking on Web element " + object);
-            System.out.println("Element la: "+Constant.driver.findElement(By.xpath(OR.getProperty(object))));
             Constant.driver.findElement(By.xpath(OR.getProperty(object))).click();
         } catch (Exception e) {
             Log.error("Not able to click --- " + e.getMessage());
@@ -97,9 +97,9 @@ public class ActionKeywords {
         }
     }
 
-    public static void waitFor(String object, String data) throws Exception {
+    public static void waitFor(String data) throws Exception {
         try {
-            Log.info("Wait for 5 seconds");
+            Log.info("Wait for: "+ data+"second");
             Thread.sleep(Long.parseLong(data));
         } catch (Exception e) {
             Log.error("Not able to Wait --- " + e.getMessage());
@@ -155,6 +155,10 @@ public class ActionKeywords {
             DriverScript.bResult = false;
         }
 
+    }
+    public void pressEnter(String object) {
+        Constant.driver.findElement(By.xpath(OR.getProperty(object))).sendKeys(Keys.RETURN);
+        Log.info("Send key Enter");
     }
 
 }
