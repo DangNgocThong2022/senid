@@ -58,6 +58,7 @@ public class ActionKeywords {
     public static void click(String object, String data) {
         try {
             Log.info("Clicking on Web element " + object);
+            System.out.println("Element la: "+Constant.driver.findElement(By.xpath(OR.getProperty(object))));
             Constant.driver.findElement(By.xpath(OR.getProperty(object))).click();
         } catch (Exception e) {
             Log.error("Not able to click --- " + e.getMessage());

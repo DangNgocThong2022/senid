@@ -9,8 +9,8 @@ loading_Bar=//div[@class='loading-spinner fade in']
 # Login Page Object
 username_Txb=//input[@formcontrolname='email']
 password_Txb=//input[@formcontrolname='password']
-login_Btn1=//button[contains(text(),'Đăng nhập')]
-login_Btn2=//div[contains(text(),'Đăng nhập')]
+login_Btn1=//div[@class='col-sm-5 rightbar size-regular vertical-center']//button[contains(text(),'ng nh')]
+login_Btn2=//div[contains(text(),'ng nh')]
 
 # My Account Page Object
 usernameMyAccount_txb=//input[@class='ant-input ant-input-lg form-control' and @name='userName']
