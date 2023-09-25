@@ -11,14 +11,13 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import test.java.executionEngine.DriverScript;
 import test.java.utils.Log;
 import org.openqa.selenium.Keys;
-
+import org.openqa.selenium.support.ui.Select;
 import java.time.Duration;
 
 import static test.java.executionEngine.DriverScript.OR;
 
 public class ActionKeywords {
 
-    //public static WebDriver driver;
 
     public static void openBrowser(String object, String data) {
         Log.info("Opening Browser");
@@ -49,7 +48,7 @@ public class ActionKeywords {
         try {
             Log.info("Navigating to URL");
             Constant.driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
-            Constant.driver.get(Constant.url);
+            Constant.driver.get(data);
         } catch (Exception e) {
             Log.info("Not able to navigate --- " + e.getMessage());
             DriverScript.bResult = false;
@@ -62,6 +61,35 @@ public class ActionKeywords {
             Constant.driver.findElement(By.xpath(OR.getProperty(object))).click();
         } catch (Exception e) {
             Log.error("Not able to click --- " + e.getMessage());
+            DriverScript.bResult = false;
+        }
+    }
+    public static void selectValueFromDropDown(String object, String data) {
+        try {
+            Log.info("Selecting on Web element " + object +" Select value: "+ data);
+            Constant.select = new Select(Constant.driver.findElement(By.xpath(OR.getProperty(object))));
+            Constant.select.selectByValue(data);
+        } catch (Exception e) {
+            Log.error("Not able to select --- " + e.getMessage());
+            DriverScript.bResult = false;
+        }
+    }
+    public static void selectIndexFromDropDown(String object, int data) {
+        try {
+            Log.info("Selecting on Web element " + object +" Select value: "+ data);
+            Constant.select = new Select(Constant.driver.findElement(By.xpath(OR.getProperty(object))));
+            Constant.select.selectByIndex(data);
+        } catch (Exception e) {
+            Log.error("Not able to select --- " + e.getMessage());
+            DriverScript.bResult = false;
+        }
+    }
+    public static void scrollToElement(String object, String data) {
+        try {
+            Log.info("Scrolling to element " + object);
+            Constant.jse.executeScript("arguments[0].scrollIntoView();", Constant.driver.findElement(By.xpath(OR.getProperty(object))));
+        } catch (Exception e) {
+            Log.error("Not able to scroll --- " + e.getMessage());
             DriverScript.bResult = false;
         }
     }
@@ -85,6 +113,27 @@ public class ActionKeywords {
             Log.error("Not able to Enter text --- " + e.getMessage());
             DriverScript.bResult = false;
         }
+    }
+    public static void sendKey(String object,String data) {
+            try {
+                if (data.equals("ENTER")) {
+                    Log.info("Sending key"+ data+ "to " + object);
+                    Constant.driver.findElement(By.xpath(OR.getProperty(object))).sendKeys(Keys.ENTER);
+                } else if (data.equals("BACK_SPACE")) {
+                    Log.info("Sending key"+ data+ "to " + object);
+                    Constant.driver.findElement(By.xpath(OR.getProperty(object))).sendKeys(Keys.BACK_SPACE);
+                } else if (data.equals("TAB")) {
+                    Log.info("Sending key"+ data+ "to " + object);
+                    Constant.driver.findElement(By.xpath(OR.getProperty(object))).sendKeys(Keys.TAB);
+                } else if (data.equals("ARROW_DOWN")) {
+                    //Dummy Code, Implement you own code
+                    Log.info("Sending key"+ data+ "to " + object);
+                    Constant.driver.findElement(By.xpath(OR.getProperty(object))).sendKeys(Keys.PAGE_DOWN);
+                }
+            } catch (Exception e) {
+                Log.error("Not able to send key "+data+ "--- " + e.getMessage());
+                DriverScript.bResult = false;
+            }
     }
 
     public static void clearText(String object, String data) {
@@ -154,11 +203,6 @@ public class ActionKeywords {
             Log.error("Not able to Wait --- " + e.getMessage());
             DriverScript.bResult = false;
         }
-
-    }
-    public void pressEnter(String object) {
-        Constant.driver.findElement(By.xpath(OR.getProperty(object))).sendKeys(Keys.RETURN);
-        Log.info("Send key Enter");
     }
 
 }

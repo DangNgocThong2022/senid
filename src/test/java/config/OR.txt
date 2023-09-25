@@ -1,10 +1,17 @@
 # Home Page Objects
 userAvatar_Ic=//span[@class='user-avatar']
-myAccount_Lnk=//span[@class='ant-dropdown-menu-title-content']//a[contains(text(),'My Account')]
-logout_Ic=//span[@class='ant-dropdown-menu-title-content']/a[text()='Logout']
-manageStudent_Lnk=//a[contains(text(),'Manage Students')]
-setting_Ic=//*[local-name()='svg']//*[local-name()='g' and @transform='translate(0.75 0.75)']/ancestor::span
 search_Tbx=//div[@class='search-border position-relative']//input[@class='searchbar']
+searchSuggestion_Tbx=//div[@class='search-border position-relative']//div[@class='suggestion-filter ng-star-inserted']
+courceResult=//h2[@class='title' and text()=' Automation Testing ']
+registerCource_Btn=//div[@class='course-summary']//button[contains(text(),'ng k')]
+vaoHocNgay_Btn=//button[contains(text(),'c ngay')]
+chonKhungGioHoc_Btn=//div[contains(text(),'Automation Testing')]//parent::div//button[contains(text(),'n khung gi')]
+ngayHoc_list=//select[@class='form-control form-control-lg ng-touched ng-pristine ng-valid']
+ngayHoc_option=//option[contains(text(),' hai-Th')]
+timesheet=//div[@class='float-left mr-4']
+luuThayDoi_Btn=//button[contains(text(),'u thay ')]
+lichCoDinh_Radio=//div[contains(text(),'ch c')]/following-sibling::span
+lichTuChon_Radio=//div[contains(text(),'ch t')]/following-sibling::span
 loading_Bar=//div[@class='loading-spinner fade in']
 
 # Login Page Object
