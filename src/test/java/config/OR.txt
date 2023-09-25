@@ -12,7 +12,8 @@ timesheet=//div[@class='float-left mr-4']
 luuThayDoi_Btn=//button[contains(text(),'u thay ')]
 lichCoDinh_Radio=//div[contains(text(),'ch c')]/following-sibling::span
 lichTuChon_Radio=//div[contains(text(),'ch t')]/following-sibling::span
-loading_Bar=//div[@class='loading-spinner fade in']
+khoaDangHoc_Tab=//div[@class='intro-child' and contains(text(),'ang h')]
+home_Icon=//div[@class='app-menu']/preceding-sibling::div
 
 # Login Page Object
 username_Txb=//input[@formcontrolname='email']
