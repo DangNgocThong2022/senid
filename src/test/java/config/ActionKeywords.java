@@ -116,24 +116,29 @@ public class ActionKeywords {
     }
     public static void sendKey(String object,String data) {
             try {
-                if (data.equals("ENTER")) {
-                    Log.info("Sending key"+ data+ "to " + object);
-                    Constant.driver.findElement(By.xpath(OR.getProperty(object))).sendKeys(Keys.ENTER);
-                } else if (data.equals("BACK_SPACE")) {
-                    Log.info("Sending key"+ data+ "to " + object);
-                    Constant.driver.findElement(By.xpath(OR.getProperty(object))).sendKeys(Keys.BACK_SPACE);
-                } else if (data.equals("TAB")) {
-                    Log.info("Sending key"+ data+ "to " + object);
-                    Constant.driver.findElement(By.xpath(OR.getProperty(object))).sendKeys(Keys.TAB);
-                } else if (data.equals("ARROW_DOWN")) {
-                    //Dummy Code, Implement you own code
-                    Log.info("Sending key"+ data+ "to " + object);
-                    Constant.driver.findElement(By.xpath(OR.getProperty(object))).sendKeys(Keys.PAGE_DOWN);
+                switch (data) {
+                    case "ENTER":
+                        Log.info("Sending key" + data + "to " + object);
+                        Constant.driver.findElement(By.xpath(OR.getProperty(object))).sendKeys(Keys.ENTER);
+                        break;
+                    case "BACK_SPACE":
+                        Log.info("Sending key" + data + "to " + object);
+                        Constant.driver.findElement(By.xpath(OR.getProperty(object))).sendKeys(Keys.BACK_SPACE);
+                        break;
+                    case "TAB":
+                        Log.info("Sending key" + data + "to " + object);
+                        Constant.driver.findElement(By.xpath(OR.getProperty(object))).sendKeys(Keys.TAB);
+                        break;
+                    case "PAGE_DOWN":
+                        Log.info("Sending key" + data + "to " + object);
+                        Constant.driver.findElement(By.xpath(OR.getProperty(object))).sendKeys(Keys.PAGE_DOWN);
+                        break;
                 }
-            } catch (Exception e) {
-                Log.error("Not able to send key "+data+ "--- " + e.getMessage());
-                DriverScript.bResult = false;
             }
+                catch (Exception e) {
+                    Log.error("Not able to send key "+data+ "--- " + e.getMessage());
+                    DriverScript.bResult = false;
+                }
     }
 
     public static void clearText(String object, String data) {
