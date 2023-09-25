@@ -32,16 +32,10 @@ public class Constant {
     public static WebElement element;
     public static List<WebElement> list;
     public static Object object;
-    public static String url = "https://senid.banvien.com.vn/";
     public static String pathFileImport = new File("file-import/").getAbsolutePath();
     public static String pathDownloadFile = new File("file-download").getAbsolutePath();
     //public static String pathDownloadFile = "D:\\Driver\\chromedriver.exe";
     public static String pathDataDictionaryFile = "data/data-dictionary/DataDictionary.xlsx";
-    //public static String passcodeAccount = "Acc3ssR3strict!";
-    //public static String usernameAdminAccount = "admin";
-    //public static String passwordAdminAccount = "t1ger1";
-    //public static String usernameTeacherAccount = "tch2";
-    //public static String passwordTeacherAccount = "123456";
 
     public static final String Path_TestData = "src/test/java/dataEngine/DataEngine.xlsx";
     public static final String Path_OR = "src/test/java/config/OR.txt";

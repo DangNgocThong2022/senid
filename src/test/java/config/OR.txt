@@ -3,15 +3,6 @@ userAvatar_Ic=//span[@class='user-avatar']
 search_Tbx=//div[@class='search-border position-relative']//input[@class='searchbar']
 searchSuggestion_Tbx=//div[@class='search-border position-relative']//div[@class='suggestion-filter ng-star-inserted']
 courceResult=//h2[@class='title' and text()=' Automation Testing ']
-registerCource_Btn=//div[@class='course-summary']//button[contains(text(),'ng k')]
-vaoHocNgay_Btn=//button[contains(text(),'c ngay')]
-chonKhungGioHoc_Btn=//div[contains(text(),'Automation Testing')]//parent::div//button[contains(text(),'n khung gi')]
-ngayHoc_list=//select[@class='form-control form-control-lg ng-touched ng-pristine ng-valid']
-ngayHoc_option=//option[contains(text(),' hai-Th')]
-timesheet=//div[@class='float-left mr-4']
-luuThayDoi_Btn=//button[contains(text(),'u thay ')]
-lichCoDinh_Radio=//div[contains(text(),'ch c')]/following-sibling::span
-lichTuChon_Radio=//div[contains(text(),'ch t')]/following-sibling::span
 khoaDangHoc_Tab=//div[@class='intro-child' and contains(text(),'ang h')]
 home_Icon=//div[@class='app-menu']/preceding-sibling::div
 
@@ -21,5 +12,15 @@ password_Txb=//input[@formcontrolname='password']
 login_Btn1=//div[@class='col-sm-5 rightbar size-regular vertical-center']//button[contains(text(),'ng nh')]
 login_Btn2=//div[contains(text(),'ng nh')]
 
+# Cource Page Objects
+registerCource_Btn=//div[@class='course-summary']//button[contains(text(),'ng k')]
+vaoHocNgay_Btn=//button[contains(text(),'c ngay')]
+chonKhungGioHoc_Btn=//div[contains(text(),'Automation Testing')]//parent::div//button[contains(text(),'n khung gi')]
+ngayHoc_list=//select[@class='form-control form-control-lg ng-touched ng-pristine ng-valid']
+ngayHoc_option=//option[contains(text(),' hai-Th')]
+timesheet=//div[@class='float-left mr-4']
+luuThayDoi_Btn=//button[contains(text(),'u thay ')]
+lichCoDinh_Radio=//div[contains(text(),'ch c')]/following-sibling::span
+lichTuChon_Radio=//div[contains(text(),'ch t')]/following-sibling::span
 
 
