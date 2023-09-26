@@ -34,7 +34,7 @@ public class Constant {
     public static Object object;
     public static String pathFileImport = new File("file-import/").getAbsolutePath();
     public static String pathDownloadFile = new File("file-download").getAbsolutePath();
-    //public static String pathDownloadFile = "D:\\Driver\\chromedriver.exe";
+
     public static String pathDataDictionaryFile = "data/data-dictionary/DataDictionary.xlsx";
 
     public static final String Path_TestData = "src/test/java/dataEngine/DataEngine.xlsx";

@@ -5,6 +5,11 @@ searchSuggestion_Tbx=//div[@class='search-border position-relative']//div[@class
 courceResult=//h2[@class='title' and text()=' Automation Testing ']
 khoaDangHoc_Tab=//div[@class='intro-child' and contains(text(),'ang h')]
 home_Icon=//div[@class='app-menu']/preceding-sibling::div
+tiepTucHoc_Btn=//div[contains(text(),'Automation Testing')]/parent::div//button[contains(text(),'Ti')]
+profile_Ic=//div[@class='col-sm-5 rightbar size-regular vertical-center']//div[@class='btn-group ng-star-inserted']
+logout_Btn=//span[@routerlink='/logout']
+quanLyChamBai_Tab=//div[contains(text(),'QU') and contains(text(),'CH')]
+chamBai_Tab=//span[contains(text(),'Ch') and contains(text(),'m b')]
 
 # Login Page Object
 username_Txb=//input[@formcontrolname='email']
@@ -22,5 +27,12 @@ timesheet=//div[@class='float-left mr-4']
 luuThayDoi_Btn=//button[contains(text(),'u thay ')]
 lichCoDinh_Radio=//div[contains(text(),'ch c')]/following-sibling::span
 lichTuChon_Radio=//div[contains(text(),'ch t')]/following-sibling::span
+noiDungKhoaHoc_Tab=//div[contains(text(),'I DUNG KH')]
+chuong1_Tab=//strong[contains(text(),'Chuong 1')]
+baiCamKet_Tab=//div[contains(text(),'i cam k')]
+dongYCamKet_Btn=//button[contains(text(),'i cam k')]
+baiThucHanh_Tab=//div[contains(text(),'i th') and contains(text(),'c h')]
+essay_Txb=//textarea[@class='form-control']
+hoanThanh_Btn=//button[contains(text(),'n th') and contains(text(),'Ho')]
 
 
