@@ -10,6 +10,7 @@ profile_Ic=//div[@class='col-sm-5 rightbar size-regular vertical-center']//div[@
 logout_Btn=//span[@routerlink='/logout']
 quanLyChamBai_Tab=//div[contains(text(),'QU') and contains(text(),'CH')]
 chamBai_Tab=//span[contains(text(),'Ch') and contains(text(),'m b')]
+chamBai_Btn=//strong[contains(text(),'khong muoi student')]/ancestor::tr//a[contains(text(),'Ch')]
 
 # Login Page Object
 username_Txb=//input[@formcontrolname='email']
@@ -34,5 +35,27 @@ dongYCamKet_Btn=//button[contains(text(),'i cam k')]
 baiThucHanh_Tab=//div[contains(text(),'i th') and contains(text(),'c h')]
 essay_Txb=//textarea[@class='form-control']
 hoanThanh_Btn=//button[contains(text(),'n th') and contains(text(),'Ho')]
+tiepTheo_Btn=//span[starts-with(text(),' Ti') and contains(text(),'p theo')]
+kiemTraCuoiKhoa_Tab=//div[starts-with(text(),' Ki') and contains(text(),'m tra cu')]
 
+# Result Page Object
+xemKetQua_Btn=//span[contains(text(),'Xem k') and contains(text(),'t qu')]
+xemGiaiThich_Btn=//button[contains(text(),'Xem gi') and contains(text(),'i th')]
+titleAssignment=//app-course-assignment[@class='ng-star-inserted']/p
+lanKiemTra=//span[starts-with(text(),'L') and contains(text(),'m tra')]/parent::div//strong
+soCauDung=//span[starts-with(text(),'S') and contains(text(),'u ') and contains(text(),'ng')]/parent::div//strong
+diemTheoThang=//span[contains(text(),'m theo thang') and contains(text(),'i')]/parent::div//strong
+soLanLamLaiBaiKiemTra=//span[starts-with(text(),'S') and contains(text(),'n l') and contains(text(),'m l')]/parent::div//strong
 
+# Grade Page Objects
+essayResult_Txb=//div[@class='student-essay ng-star-inserted']
+danhMucLopHoc_List=//div[starts-with(text(),'Danh')]
+lopHocAutomation=//li[contains(text(),'Automation Testing')]
+thangDiemDefault=//span[@class='mat-slider-thumb-label-text' and contains(text(),'0')]
+themGiaiThich_Btn=//div[contains(text(),'i th') and contains(text(),'m gi')]
+themGiaiThich_Txb=//textarea[@class='form-control mt-2 ng-pristine ng-valid ng-star-inserted ng-touched']
+dung_Radio=//div[contains(text(),'ng')]/preceding-sibling::div[@class='mat-radio-container']
+sai_Radio=//div[contains(text(),'Sai')]/preceding-sibling::div[@class='mat-radio-container']
+hoanThanh_Btn=//button[contains(text(),'Ho') and contains(text(),'n th')]
+chamDiem_Popup=//div[@id='swal2-content']
+OkChamDiem_Btn=//button[contains(text(),'OK')]

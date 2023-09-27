@@ -4,6 +4,7 @@ import main.java.common.Constant;
 import main.java.common.helpers.BrowserHelper;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.ie.InternetExplorerDriver;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -104,7 +105,57 @@ public class ActionKeywords {
             DriverScript.bResult = false;
         }
     }
-
+    public static void clickByAction(String object, String data) {
+        try {
+            Log.info("clicking on Web element " + object);
+            Actions actions = new Actions(Constant.driver);
+            actions.moveToElement(Constant.driver.findElement(By.xpath(OR.getProperty(object)))).click();
+        } catch (Exception e) {
+            Log.error("Not able to hover mouse--- " + e.getMessage());
+            DriverScript.bResult = false;
+        }
+    }
+    public static void sendkeyByAction(String object, String data) {
+        try {
+            Log.info("clicking on Web element " + object);
+            Actions actions = new Actions(Constant.driver);
+            actions.sendKeys(Constant.driver.findElement(By.xpath(OR.getProperty(object))),data).build().perform();
+        } catch (Exception e) {
+            Log.error("Not able to hover mouse--- " + e.getMessage());
+            DriverScript.bResult = false;
+        }
+    }
+    public static void clickByJavascript(String object, String data) {
+        try {
+            Log.info("clicking on Web element " + object);
+            Constant.jse.executeScript("document.getElementByXpath(OR.getProperty(object)).click();");
+        } catch (Exception e) {
+            Log.error("Not able to hover mouse--- " + e.getMessage());
+            DriverScript.bResult = false;
+        }
+    }
+    public static void scroll(String object, String data) {
+        try {
+            Log.info("Scrolling to: " + data);
+            Constant.jse = (JavascriptExecutor) Constant.driver;
+            Constant.jse.executeScript("window.scrollTo("+data+")");
+        } catch (Exception e) {
+            Log.error("Not able to scroll page--- " + e.getMessage());
+            DriverScript.bResult = false;
+        }
+    }
+    public static void dragAndDrop(String from, String to) {
+        try {
+            Log.info("Drag and drop to: " + to);
+            WebElement fromObject=Constant.driver.findElement(By.xpath(OR.getProperty(from)));
+            WebElement toObject=Constant.driver.findElement(By.xpath(OR.getProperty(to)));
+            Constant.actions=new Actions(Constant.driver);
+            Constant.actions.dragAndDrop(fromObject,toObject).perform();
+        } catch (Exception e) {
+            Log.error("Not able to Drag and Drop item--- " + e.getMessage());
+            DriverScript.bResult = false;
+        }
+    }
     public static void input(String object, String data) {
         try {
             Log.info("Entering the text in " + object);
