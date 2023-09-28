@@ -37,6 +37,11 @@ essay_Txb=//textarea[@class='form-control']
 hoanThanh_Btn=//button[contains(text(),'n th') and contains(text(),'Ho')]
 tiepTheo_Btn=//span[starts-with(text(),' Ti') and contains(text(),'p theo')]
 kiemTraCuoiKhoa_Tab=//div[starts-with(text(),' Ki') and contains(text(),'m tra cu')]
+answerKiemTraCuoiKhoa=//label[text()='4 ']
+resultEssay=//p[@class='true-result ng-star-inserted']
+giaiThich_Text=//div[@class='explain-title ng-star-inserted']/following-sibling::div/p
+giaiThichGiaoVien_Text=//div[contains(text(),'Gi') and contains(text(),'a gi') and contains(text(),'o vi') ]
+doiGiaoVienChamDiem_text=//span[contains(text(),'ang ') and contains(text(),'i gi') and contains(text(),'n ch')]
 
 # Result Page Object
 xemKetQua_Btn=//span[contains(text(),'Xem k') and contains(text(),'t qu')]
@@ -51,9 +56,9 @@ soLanLamLaiBaiKiemTra=//span[starts-with(text(),'S') and contains(text(),'n l') 
 essayResult_Txb=//div[@class='student-essay ng-star-inserted']
 danhMucLopHoc_List=//div[starts-with(text(),'Danh')]
 lopHocAutomation=//li[contains(text(),'Automation Testing')]
-thangDiemDefault=//span[@class='mat-slider-thumb-label-text' and contains(text(),'0')]
+slider=//mat-slider[@role='slider']
 themGiaiThich_Btn=//div[contains(text(),'i th') and contains(text(),'m gi')]
-themGiaiThich_Txb=//textarea[@class='form-control mt-2 ng-pristine ng-valid ng-star-inserted ng-touched']
+themGiaiThich_Txb=//textarea[@class='form-control mt-2 ng-star-inserted']
 dung_Radio=//div[contains(text(),'ng')]/preceding-sibling::div[@class='mat-radio-container']
 sai_Radio=//div[contains(text(),'Sai')]/preceding-sibling::div[@class='mat-radio-container']
 hoanThanh_Btn=//button[contains(text(),'Ho') and contains(text(),'n th')]

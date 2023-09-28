@@ -2,18 +2,17 @@ package test.java.config;
 
 import main.java.common.Constant;
 import main.java.common.helpers.BrowserHelper;
-import org.openqa.selenium.By;
-import org.openqa.selenium.JavascriptExecutor;
-import org.openqa.selenium.WebElement;
+import org.openqa.selenium.*;
 import org.openqa.selenium.ie.InternetExplorerDriver;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.Assert;
 import test.java.executionEngine.DriverScript;
 import test.java.utils.Log;
-import org.openqa.selenium.Keys;
 import org.openqa.selenium.support.ui.Select;
 import java.time.Duration;
+import java.util.Objects;
 
 import static test.java.executionEngine.DriverScript.OR;
 
@@ -52,6 +51,19 @@ public class ActionKeywords {
             Constant.driver.get(data);
         } catch (Exception e) {
             Log.info("Not able to navigate --- " + e.getMessage());
+            DriverScript.bResult = false;
+        }
+    }
+    public static void setWindowsSize(String object, String data) {
+        try {
+            Log.info("Setting Windows size: "+data );
+            String[] result = data.split(",");
+            String height= result[0];
+            String width= result[1];
+            Dimension newDimension = new Dimension(Integer.valueOf(height), Integer.valueOf(width));
+            Constant.driver.manage().window().setSize(newDimension);
+        } catch (Exception e) {
+            Log.info("Not able to set windows size --- " + e.getMessage());
             DriverScript.bResult = false;
         }
     }
@@ -146,7 +158,7 @@ public class ActionKeywords {
     }
     public static void dragAndDrop(String from, String to) {
         try {
-            Log.info("Drag and drop to: " + to);
+            Log.info("Drag and drop to value: " + to);
             WebElement fromObject=Constant.driver.findElement(By.xpath(OR.getProperty(from)));
             WebElement toObject=Constant.driver.findElement(By.xpath(OR.getProperty(to)));
             Constant.actions=new Actions(Constant.driver);
@@ -169,20 +181,24 @@ public class ActionKeywords {
             try {
                 switch (data) {
                     case "ENTER":
-                        Log.info("Sending key" + data + "to " + object);
+                        Log.info("Sending key: " + data + "to " + object);
                         Constant.driver.findElement(By.xpath(OR.getProperty(object))).sendKeys(Keys.ENTER);
                         break;
                     case "BACK_SPACE":
-                        Log.info("Sending key" + data + "to " + object);
+                        Log.info("Sending key: " + data + "to " + object);
                         Constant.driver.findElement(By.xpath(OR.getProperty(object))).sendKeys(Keys.BACK_SPACE);
                         break;
                     case "TAB":
-                        Log.info("Sending key" + data + "to " + object);
+                        Log.info("Sending key: " + data + "to " + object);
                         Constant.driver.findElement(By.xpath(OR.getProperty(object))).sendKeys(Keys.TAB);
                         break;
                     case "PAGE_DOWN":
-                        Log.info("Sending key" + data + "to " + object);
+                        Log.info("Sending key: " + data + "to " + object);
                         Constant.driver.findElement(By.xpath(OR.getProperty(object))).sendKeys(Keys.PAGE_DOWN);
+                        break;
+                    case "ARROW_RIGHT":
+                        Log.info("Sending key: " + data + "to " + object);
+                        Constant.driver.findElement(By.xpath(OR.getProperty(object))).sendKeys(Keys.ARROW_RIGHT);
                         break;
                 }
             }
@@ -212,20 +228,22 @@ public class ActionKeywords {
         }
     }
 
-    public static void assertData(String object, String data) throws Exception {
-        String getText = (String) ((JavascriptExecutor) Constant.driver).executeScript("return arguments[0].value;", Constant.driver.findElement(By.xpath(OR.getProperty(object))));
+    public static void assertData(String object, String expected) throws Exception {
         try {
-            Log.info("Asserting.....");
-            if (getText.equals(data)) {
+            String getText = Constant.driver.findElement(By.xpath(OR.getProperty(object))).getText();
+            boolean compare = Objects.equals(getText, expected);
+            if (compare) {
                 Log.info("Assert matched.....");
                 DriverScript.bResult = true;
+            } else if (!(compare)) {
+                Log.error("Assert fail");
+                Log.info("Actual result: " + getText);
+                Log.info("Expected result: " + expected);
+                DriverScript.bResult = false;
             }
-        } catch (Exception e) {
-            Log.error("Assert fail");
-            Log.error("Actual result:" + getText);
-            Log.error("Expected result:" + data);
-            DriverScript.bResult = false;
-        }
+        }catch(Exception e){
+                DriverScript.bResult = false;
+            }
     }
 
     public static void closeBrowser(String object, String data) {
