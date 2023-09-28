@@ -40,7 +40,7 @@ kiemTraCuoiKhoa_Tab=//div[starts-with(text(),' Ki') and contains(text(),'m tra c
 answerKiemTraCuoiKhoa=//label[text()='4 ']
 resultEssay=//p[@class='true-result ng-star-inserted']
 giaiThich_Text=//div[@class='explain-title ng-star-inserted']/following-sibling::div/p
-giaiThichGiaoVien_Text=//div[contains(text(),'Gi') and contains(text(),'a gi') and contains(text(),'o vi') ]
+giaiThichGiaoVien_Text=//div[contains(text(),'Gi') and contains(text(),'a gi') and contains(text(),'o vi') ]/following-sibling::div
 doiGiaoVienChamDiem_text=//span[contains(text(),'ang ') and contains(text(),'i gi') and contains(text(),'n ch')]
 
 # Result Page Object
